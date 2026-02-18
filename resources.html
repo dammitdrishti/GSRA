@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSRA Resources | Research, Policy & Skilling Insights</title>
+    <meta name="description" content="Explore GSRA resources on skilling systems, curriculum and policy perspectives.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue: #1F4FD8;
+            --green: #1F7A5A;
+            --dark: #111827;
+            --mid: #374151;
+            --light: #6B7280;
+            --bg: #F8FAFF;
+            --white: #ffffff;
+            --card-border: #E5E9F5;
+            --shadow-sm: 0 2px 8px rgba(31,79,216,0.07);
+            --shadow-md: 0 8px 32px rgba(31,79,216,0.12);
+            --shadow-lg: 0 20px 60px rgba(31,79,216,0.15);
+        }
+
+        body { font-family: 'DM Sans', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+        /* HEADER */
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+        header .container { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; padding-bottom: 12px; }
+        .logo-wrap { display: flex; align-items: center; gap: 14px; }
+        .logo-wrap img { height: 58px; object-fit: contain; }
+        .logo-text strong { display: block; font-weight: 600; font-size: 1.05rem; color: var(--blue); }
+        .logo-text span { font-style: italic; font-size: 0.75rem; color: var(--green); font-family: 'Playfair Display', serif; }
+        nav ul { list-style: none; display: flex; gap: 4px; }
+        nav ul li a { text-decoration: none; color: var(--mid); font-weight: 500; font-size: 0.9rem; padding: 8px 14px; border-radius: 8px; transition: background 0.2s, color 0.2s; }
+        nav ul li a:hover, nav ul li a.active { background: #EEF2FF; color: var(--blue); }
+
+        /* PAGE HERO */
+        .page-hero { padding: 100px 0 70px; background: linear-gradient(150deg, #EEF2FF 0%, #F0FFF8 60%, #ffffff 100%); text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; top: -80px; right: -120px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(31,79,216,0.08) 0%, transparent 70%); pointer-events: none; }
+        .page-hero .container { position: relative; z-index: 1; }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 700; color: var(--dark); margin-bottom: 20px; letter-spacing: -0.02em; animation: fadeUp 0.7s ease both; }
+        .page-hero p { font-size: 1.05rem; line-height: 1.75; color: var(--mid); max-width: 620px; margin: 0 auto; animation: fadeUp 0.7s 0.15s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* RESOURCES */
+        .resources-section { padding: 80px 0 100px; }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+        }
+        .resource-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .resource-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+        .resource-card:hover::before { transform: scaleX(1); }
+
+        .resource-card .tag {
+            display: inline-block;
+            background: #EEF2FF; color: var(--blue);
+            font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.07em; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 6px;
+            margin-bottom: 14px;
+        }
+        .resource-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem; font-weight: 600; color: var(--dark);
+            margin-bottom: 12px; line-height: 1.35;
+        }
+        .resource-card p {
+            font-size: 0.875rem; color: var(--light); line-height: 1.6;
+        }
+        .resource-card .arrow {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-top: 18px; font-size: 0.85rem; font-weight: 600;
+            color: var(--blue); transition: gap 0.2s;
+        }
+        .resource-card:hover .arrow { gap: 10px; }
+
+        footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 36px 0; text-align: center; font-size: 0.88rem; }
+
+        @media (max-width: 768px) { nav ul { gap: 2px; } nav ul li a { padding: 8px 10px; font-size: 0.82rem; } }
+        @media (max-width: 540px) { nav { display: none; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo-wrap">
+            <img src="images/Final look of logo.png" alt="GSRA Logo">
+            <div class="logo-text">
+                <strong>Global Skill Research Alliance</strong>
+                <span>Shaping Skills, Steering Policy, Scaling Futures.</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Resources</h1>
+        <p>GSRA Resources share research insights, policy perspectives, and practical guidance for institutions working across skilling ecosystems.</p>
+    </div>
+</section>
+
+<section class="resources-section">
+    <div class="container">
+        <div class="resources-grid">
+
+            <div class="resource-card">
+                <span class="tag">Research</span>
+                <h3>Skilling Ecosystems</h3>
+                <p>Frameworks, case studies, and strategic guidance on building robust skilling infrastructure.</p>
+                <div class="arrow">Explore →</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="tag">Curriculum</span>
+                <h3>Qualification & Curriculum Development</h3>
+                <p>Best practices in QF, MC, and competency-based curriculum design.</p>
+                <div class="arrow">Explore →</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="tag">Quality</span>
+                <h3>Quality Assurance & Assessment</h3>
+                <p>Guidance on assessment design, evaluation tools, and quality benchmarking.</p>
+                <div class="arrow">Explore →</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="tag">Higher Ed</span>
+                <h3>Higher Education Skill Integration</h3>
+                <p>NEP-aligned strategies for embedding skill pathways within higher education institutions.</p>
+                <div class="arrow">Explore →</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="tag">Global</span>
+                <h3>Global Pathways & Collaboration</h3>
+                <p>Insights on international credit frameworks and cross-border academic collaboration.</p>
+                <div class="arrow">Explore →</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="tag">Policy</span>
+                <h3>Policy & Sector Insights</h3>
+                <p>Analysis and perspectives on evolving workforce and education policy landscapes.</p>
+                <div class="arrow">Explore →</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Global Skill Research Alliance. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

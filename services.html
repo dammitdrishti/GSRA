@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSRA Services | Skilling, Curriculum & Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue: #1F4FD8;
+            --green: #1F7A5A;
+            --dark: #111827;
+            --mid: #374151;
+            --light: #6B7280;
+            --bg: #F8FAFF;
+            --white: #ffffff;
+            --card-border: #E5E9F5;
+            --shadow-sm: 0 2px 8px rgba(31,79,216,0.07);
+            --shadow-md: 0 8px 32px rgba(31,79,216,0.12);
+            --shadow-lg: 0 20px 60px rgba(31,79,216,0.15);
+        }
+
+        body { font-family: 'DM Sans', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+        /* HEADER */
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+        header .container { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; padding-bottom: 12px; }
+        .logo-wrap { display: flex; align-items: center; gap: 14px; }
+        .logo-wrap img { height: 58px; object-fit: contain; }
+        .logo-text strong { display: block; font-weight: 600; font-size: 1.05rem; color: var(--blue); }
+        .logo-text span { font-style: italic; font-size: 0.75rem; color: var(--green); font-family: 'Playfair Display', serif; }
+        nav ul { list-style: none; display: flex; gap: 4px; }
+        nav ul li a { text-decoration: none; color: var(--mid); font-weight: 500; font-size: 0.9rem; padding: 8px 14px; border-radius: 8px; transition: background 0.2s, color 0.2s; }
+        nav ul li a:hover, nav ul li a.active { background: #EEF2FF; color: var(--blue); }
+
+        /* PAGE HERO */
+        .page-hero { padding: 100px 0 70px; background: linear-gradient(150deg, #EEF2FF 0%, #F0FFF8 60%, #ffffff 100%); text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; top: -80px; right: -120px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(31,79,216,0.08) 0%, transparent 70%); pointer-events: none; }
+        .page-hero .container { position: relative; z-index: 1; }
+        .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 700; color: var(--dark); margin-bottom: 20px; letter-spacing: -0.02em; animation: fadeUp 0.7s ease both; }
+        .page-hero p { font-size: 1.05rem; line-height: 1.75; color: var(--mid); max-width: 620px; margin: 0 auto; animation: fadeUp 0.7s 0.15s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* SERVICES */
+        .services-section { padding: 80px 0 100px; }
+
+        .service-block {
+            display: grid;
+            grid-template-columns: 4px 1fr;
+            gap: 0 32px;
+            margin-bottom: 40px;
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .service-block:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .service-block:nth-child(odd)  .service-stripe { background: var(--blue); }
+        .service-block:nth-child(even) .service-stripe { background: var(--green); }
+        .service-stripe { width: 4px; min-height: 100%; }
+        .service-body { padding: 36px 32px 36px 0; }
+        .service-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem; font-weight: 600; color: var(--dark);
+            margin-bottom: 18px;
+        }
+        .service-body ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .service-body ul li {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 0.95rem; color: var(--mid);
+        }
+        .service-body ul li::before {
+            content: '→';
+            color: var(--blue); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+        }
+        .service-block:nth-child(even) .service-body ul li::before { color: var(--green); }
+
+        /* FOOTER */
+        footer { background: var(--dark); color: rgba(255,255,255,0.7); padding: 36px 0; text-align: center; font-size: 0.88rem; }
+
+        @media (max-width: 768px) { nav ul { gap: 2px; } nav ul li a { padding: 8px 10px; font-size: 0.82rem; } }
+        @media (max-width: 540px) { nav { display: none; } .service-body { padding: 24px 20px 24px 0; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo-wrap">
+            <img src="images/Final look of logo.png" alt="GSRA Logo">
+            <div class="logo-text">
+                <strong>Global Skill Research Alliance</strong>
+                <span>Shaping Skills, Steering Policy, Scaling Futures.</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>Our Services</h1>
+        <p>Research-backed advisory and institutional support across the full skilling and education spectrum.</p>
+    </div>
+</section>
+
+<section class="services-section">
+    <div class="container">
+
+        <div class="service-block">
+            <div class="service-stripe"></div>
+            <div class="service-body">
+                <h3>Awarding Body & Skilling Ecosystem Advisory</h3>
+                <ul>
+                    <li>End-to-end advisory for Awarding Body readiness.</li>
+                    <li>Compliance and operational readiness guidance.</li>
+                    <li>Institutional capacity building and governance support.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-stripe"></div>
+            <div class="service-body">
+                <h3>Qualification, Curriculum & Content Development</h3>
+                <ul>
+                    <li>Qualification Files (QF) and Model Curriculum (MC).</li>
+                    <li>Assessment frameworks and evaluation tools.</li>
+                    <li>Micro/Nano-credentials and credit-aligned programmes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-block">
+            <div class="service-stripe"></div>
+            <div class="service-body">
+                <h3>Higher Education & Global Integration</h3>
+                <ul>
+                    <li>NEP-aligned skill integration strategies.</li>
+                    <li>Global academic pathways and credit-based design.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Global Skill Research Alliance. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About GSRA | Research-led Skilling & Education Alliance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue: #1F4FD8;
+            --green: #1F7A5A;
+            --dark: #111827;
+            --mid: #374151;
+            --light: #6B7280;
+            --bg: #F8FAFF;
+            --white: #ffffff;
+            --card-border: #E5E9F5;
+            --shadow-sm: 0 2px 8px rgba(31,79,216,0.07);
+            --shadow-md: 0 8px 32px rgba(31,79,216,0.12);
+            --shadow-lg: 0 20px 60px rgba(31,79,216,0.15);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        .logo-wrap { display: flex; align-items: center; gap: 14px; }
+        .logo-wrap img { height: 58px; object-fit: contain; }
+        .logo-text strong { display: block; font-weight: 600; font-size: 1.05rem; color: var(--blue); }
+        .logo-text span { font-style: italic; font-size: 0.75rem; color: var(--green); font-family: 'Playfair Display', serif; }
+
+        nav ul { list-style: none; display: flex; gap: 4px; }
+        nav ul li a {
+            text-decoration: none; color: var(--mid); font-weight: 500; font-size: 0.9rem;
+            padding: 8px 14px; border-radius: 8px; transition: background 0.2s, color 0.2s;
+        }
+        nav ul li a:hover, nav ul li a.active { background: #EEF2FF; color: var(--blue); }
+
+        /* HERO */
+        .page-hero {
+            padding: 100px 0 70px;
+            background: linear-gradient(150deg, #EEF2FF 0%, #F0FFF8 60%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; top: -80px; right: -120px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(31,79,216,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero .container { position: relative; z-index: 1; }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 700; color: var(--dark); margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            animation: fadeUp 0.7s ease both;
+        }
+        .page-hero p {
+            font-size: 1.1rem; line-height: 1.75; color: var(--mid);
+            max-width: 720px; margin: 0 auto;
+            animation: fadeUp 0.7s 0.15s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SECTIONS */
+        .section { padding: 80px 0; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; font-weight: 700;
+            color: var(--dark); text-align: center; margin-bottom: 50px;
+        }
+
+        /* LEADERSHIP GRID */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            justify-content: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--green));
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .team-card img {
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--card-border);
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-sm);
+        }
+        .team-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem; font-weight: 600;
+            color: var(--dark); margin-bottom: 6px;
+        }
+        .team-card .role {
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--blue); text-transform: uppercase;
+            letter-spacing: 0.06em; margin-bottom: 10px;
+        }
+        .team-card p {
+            font-size: 0.88rem; color: var(--light); line-height: 1.6;
+        }
+
+        /* ADVISORY GRID */
+        .advisory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .advisory-card {
+            background: var(--white);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .advisory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .advisory-card img {
+            width: 90px; height: 90px;
+            border-radius: 50%; object-fit: cover;
+            border: 2px solid var(--card-border);
+            margin-bottom: 14px;
+        }
+        .advisory-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; font-weight: 600; color: var(--dark);
+        }
+
+        /* DIVIDER */
+        .section-divider {
+            border: none; border-top: 1px solid var(--card-border); margin: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark); color: rgba(255,255,255,0.7);
+            padding: 36px 0; text-align: center; font-size: 0.88rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { gap: 2px; }
+            nav ul li a { padding: 8px 10px; font-size: 0.82rem; }
+            .page-hero { padding: 70px 0 50px; }
+        }
+        @media (max-width: 540px) { nav { display: none; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo-wrap">
+            <img src="images/Final look of logo.png" alt="GSRA Logo">
+            <div class="logo-text">
+                <strong>Global Skill Research Alliance</strong>
+                <span>Shaping Skills, Steering Policy, Scaling Futures.</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="container">
+        <h1>About Global Skill Research Alliance</h1>
+        <p>The Global Skill Research Alliance (GSRA) is a pioneering non-profit organisation dedicated to strengthening education, skilling, and workforce-development systems. We operate as a strategic knowledge and advisory partner to academia, industry, and government bodies.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Leadership</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="images/Ajay Bhushan.jpeg" alt="Mr Ajay Bhushan Chairman GSRA">
+                <h3>Mr. Ajay Bhushan</h3>
+                <div class="role">Chairman</div>
+                <p>37+ years of experience in workforce development and institutional leadership.</p>
+            </div>
+            <div class="team-card">
+                <img src="images/Vikas Choudhary.jpeg" alt="Mr Vikas Choudhary Co-Chairman GSRA">
+                <h3>Mr. Vikas Choudhary</h3>
+                <div class="role">Co-Chairman</div>
+                <p>20+ years in Skill Development leading academia-industry integration.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="section" style="background: var(--bg);">
+    <div class="container">
+        <h2 class="section-title">Advisory Board</h2>
+        <div class="advisory-grid">
+            <div class="advisory-card">
+                <img src="images/Mrs. Sneha Bose Bhardwaj.jpeg" alt="Sneha Bose Bhardwaj">
+                <h3>Sneha Bose Bhardwaj</h3>
+            </div>
+            <div class="advisory-card">
+                <img src="images/Seema Darnal.jpeg" alt="Seema Darnal">
+                <h3>Seema Darnal</h3>
+            </div>
+            <div class="advisory-card">
+                <img src="images/Mr. Manish Malhotra.jpeg" alt="Manish Malhotra">
+                <h3>Manish Malhotra</h3>
+            </div>
+            <div class="advisory-card">
+                <img src="images/Shiv Kumar Bansal.jpeg" alt="Shiv Kumar Bansal">
+                <h3>Shiv Kumar Bansal</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Global Skill Research Alliance. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
